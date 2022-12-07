@@ -39,5 +39,18 @@ public class ConnectionFactory {
                        throw new RuntimeException("Erro ao fechar a conexão com o BD");
                        }
            }
+      public static void closeConnection(Connection connection, PreparedStatement statement) {
+           try {
+               if (connection != null) {
+                   connection.close();
+               } 
+               if(statement != null ) {
+                   statement.close();
+               }
+           }
+           catch (Exception ex) {
+                       throw new RuntimeException("Erro ao fechar a conexão com o BD");
+                       }
+           }
     
 }
